@@ -1,0 +1,46 @@
+import java.util.*;
+public class Hello {
+
+    public static void main(String[] args) {
+	
+	Scanner sc = new Scanner(System.in);
+	int r = sc.nextInt();
+	int c = sc.nextInt();
+	
+	int[][] trees = new int[r][c];
+	
+	for(int i=0;i<r;i++)
+	for(int j=0;j<c;j++)
+	    trees[i][j]=sc.nextInt();
+	    
+	String shadow = sc.next();
+	int counter = 0;
+	for(int i =0;i<r;i++)
+    {
+        for(int j=0;j<c;j++)
+        {
+            if(shadow.equals("L"))
+            {
+                if(j!=c-1&&trees[i][j]==1&&trees[i][j+1]==0)
+                counter++;
+            }
+            else if(shadow.equals("R"))
+            {
+                if(j!=0&&j!=c-1&&i!=r-1&&trees[i][j]==1&&trees[i][j-1]==0)
+                counter++;
+            }
+            else if(shadow.equals("F"))
+            {
+                if(i!=0&&trees[i][j]==1&&trees[i-1][j]==0)
+                counter++;
+            }
+            else if(shadow.equals("B"))
+            {
+                if(i!=r-1&&trees[i][j]==1&&trees[i+1][j]==0)
+                counter++;
+            }
+        }
+    }
+    System.out.println(counter);
+	}
+}
