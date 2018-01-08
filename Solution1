@@ -26,7 +26,7 @@ public class Hello {
             }
             else if(shadow.equals("R"))
             {
-                if(j!=0&&j!=c-1&&i!=r-1&&trees[i][j]==1&&trees[i][j-1]==0)
+                if(j!=0&&trees[i][j]==1&&trees[i][j-1]==0)
                 counter++;
             }
             else if(shadow.equals("F"))
